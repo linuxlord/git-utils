@@ -23,3 +23,27 @@ git settings apply @ 3 levels
  git config --global core.autocrlf input # mac / Linux
 
  git config --help # to get help regarding config.
+
+ # Initializing a git repo.
+ git init # initializes a empty git repo.
+ git add <filename>/.
+ git commit -m "initial commit"
+
+ Each commit contains a snapshot.
+
+ git add .  # adds files recursively.
+ git status # shows files in staging area.
+
+ git commit -m "<your commit msg>"
+ git commit -am "<commit msg>" # Directly commits the changes.
+
+ git ls-files # lists files in staging area.
+ git rm <filename/pattern i.e *.txt> # Removes files from working Dir and staging area.
+ git mv <filename> # moves / renames files.
+
+ # Ignoring files with Git
+   vim .gitignore # contains 1 entry per line.
+
+  git rm --cached <filename> # Removes file from staging area only. not the local copy.
+
+  git status -s # summary of the staging area. // Shows short status
