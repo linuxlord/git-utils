@@ -38,4 +38,6 @@ Creating a Git Repo
 
  git add -u # If files are moved / renamed outside of git. and the chg needs to be committed.
 
- 
+ # Ignoring files with git , it should contain 1 pattern per line.
+
+ vim .gitignore # i.e. *.log
