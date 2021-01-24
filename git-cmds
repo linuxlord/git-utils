@@ -29,3 +29,7 @@ Creating a Git Repo
  git help log # to get help on command.
 
  git log --oneline --graph --decorate --color
+
+ git rm <filename> # To remove a file from git.
+
+ git add -u # if a file is deleted outside git and is to be committed.
