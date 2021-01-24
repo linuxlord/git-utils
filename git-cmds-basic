@@ -1,0 +1,59 @@
+Git Help Commands
+ git Help
+ git help config
+ git help Commands
+
+Git Configuration Commands
+ git config --global setting value
+
+Configure User and Email
+ git config --global user.name "Your Name"
+ git config --global user.email "youremail@yourdomain.subdomain"
+ git config --global --list
+
+ cat ~/.gitconfig
+
+Creating a Git Repo
+ git init <repo-name>
+
+ git status
+ git add <File-name> / .
+ git commit -m "<your commit msg here>"
+
+ git commit -am "<your commit msg>" # for files being already tracked by git.
+
+ git reset HEAD <file name> # To unstage file / unstaging changes.
+ git checkout -- <filename> # Discard changes in working directory.
+
+ git log # Shows commit history in reverse chronological order.
+ git help log # to get help on command.
+
+ git log --oneline --graph --decorate --color
+
+ git rm <filename> # To remove a file from git.
+
+ git add -u # if a file is deleted outside git and is to be committed.
+
+ git mv <sourcefile> <dest. file> # for moving / renaming files in git.
+
+ git add -u # If files are moved / renamed outside of git. and the chg needs to be committed.
+
+ # Ignoring files with git , it should contain 1 pattern per line.
+
+ vim .gitignore # i.e. *.log
+
+ git add -u # The u parameter will recursively update git's staging area regarding deleted
+ #moved files outside of git.
+
+# working with remote branch.
+
+ ssh-keygen -t rsa -C "your.name@yourdomain.com" # generate ssh key for github.
+
+ ssh -T git@github.com
+
+ git remote add origin <Your git repo url here>
+ git push -u origin master
+ git remote -v # shows remote url
+
+ git pull # Always do a pull before pushing in remote branch.
+ 
