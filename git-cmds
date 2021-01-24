@@ -12,3 +12,10 @@ Configure User and Email
  git config --global --list
 
  cat ~/.gitconfig
+
+Creating a Git Repo
+ git init <repo-name>
+
+ git status
+ git add <File-name> / .
+ git commit -m "<your commit msg here>"
