@@ -76,4 +76,93 @@ git settings apply @ 3 levels
   git log --oneline
   git restore --source=HEAD~1 <Full path to file> # will restore the file.
 
-  
+  # Git history browse and search.
+
+  git log
+  git log --oneline
+  git log --oneline --stat
+  git log --stat
+  git log --oneline --patch
+  git log --oneline -3 # shows last 3 commits
+  git log --oneline --author="<name of committer>"
+  git log --oneline --after="2020-02-20"
+  git log --oneline --before=""
+  git log --oneline --grep="GUI"
+  git log --oneline -S="hello()" # searches for all commits that created a fxn.
+  git log --oneline -S"OBJECTIVES"
+  git log --oneline -S"OBJECTIVES" --patch
+  git log --oneline scommithash..dcommithash
+  git log --oneline <filename> # shows commits to a particular file.
+  git log --oneline --patch <filename> # will show changes in each commit.
+
+  # Formatiing the log output
+  git log --pretty=format:"%an committed %H"
+  git log --pretty=format:"%an committed %h on %cd"
+
+  # aliases in git
+  git config --global alias.lg "log --pretty=format: '%an committed %h'"
+  git config --global -e
+  git config --global alias.unstage "restore --staged ."
+
+  #Viewing commits
+  git show HEAD~2 # show 2 commits before the last commit.
+  git show HEAD~2:<Path to file> # shows final version of file for the particular commit.
+  git show HEAD~2 --name-only
+  git show HEAD~2 --name-status
+
+  #viewing the changes across commits
+  git diff HEAD~2
+  git diff HEAD~2 HEAD <filename>
+  git diff HEAD~2 HEAD --name-only
+  git diff HEAD~2 HEAD --name-status
+
+  # checking out a commit
+  git checkout <commit id>
+  git log --oneline --all
+  git checkout master
+
+  #Bug finding with git
+  git bisect start
+  git bisect bad # marks current commit as bad commit
+  git bisect good <commit id>
+  git bisect good
+  git bisect good
+  git log --oneline --all
+  git bisect bad
+  git bisect reset
+
+  # Finding contributors using shortlog
+  git shortlog
+  git shortlog -n
+  git shortlog -n -s
+  git shortlog -n -s -e
+  git shortlog -n -s -e --before=""  --after=""
+
+  #viewing the history of a file
+  git log <filename>
+  git log --oneline <filename>
+  git log --oneline --stat <filename>
+  git log --oneline --patch <filename>
+
+  #restoring a deleted file
+  git rm <filename>
+  git log --oneline -- toc.txt
+  git checkout <commitid> <path to file>
+  git status -s
+  git commit -m "Restoring the file"
+
+  #finding author of a line using blame
+  git blame <filename>
+  git blame -e <filename>
+  git blame -L 1,3 <filename> # will only show first 3 lines
+
+  #Tagging in git
+  git tag v1.0 # will tag the last commit with version no.
+  git tag v1.0 <commit id>
+  git log --oneline
+  git checkout v1.0
+  git tag # will show all the tags
+  git tag -a v1.1 -m "My description" # creates annotated tags / allows to write a short description of the tag.
+  git tag -n # shows tag with annotations
+  git show v1.1
+  git tag -d <tag name> # will delete the tag.
