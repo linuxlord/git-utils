@@ -19,3 +19,10 @@ Creating a Git Repo
  git status
  git add <File-name> / .
  git commit -m "<your commit msg here>"
+
+ git commit -am "<your commit msg>" # for files being already tracked by git.
+
+ git reset HEAD <file name> # To unstage file / unstaging changes.
+ git checkout -- <filename> # Discard changes in working directory.
+
+ 
