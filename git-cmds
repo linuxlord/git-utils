@@ -33,3 +33,9 @@ Creating a Git Repo
  git rm <filename> # To remove a file from git.
 
  git add -u # if a file is deleted outside git and is to be committed.
+
+ git mv <sourcefile> <dest. file> # for moving / renaming files in git.
+
+ git add -u # If files are moved / renamed outside of git. and the chg needs to be committed.
+
+ 
