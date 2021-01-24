@@ -41,3 +41,19 @@ Creating a Git Repo
  # Ignoring files with git , it should contain 1 pattern per line.
 
  vim .gitignore # i.e. *.log
+
+ git add -u # The u parameter will recursively update git's staging area regarding deleted
+ #moved files outside of git.
+
+# working with remote branch.
+
+ ssh-keygen -t rsa -C "your.name@yourdomain.com" # generate ssh key for github.
+
+ ssh -T git@github.com
+
+ git remote add origin <Your git repo url here>
+ git push -u origin master
+ git remote -v # shows remote url
+
+ git pull # Always do a pull before pushing in remote branch.
+ 
