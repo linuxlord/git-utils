@@ -1,0 +1,25 @@
+### Git basic-intermediate ###
+
+git is a vcs -> version control system.
+git is a distributed version control system. Each user gets a complete copy of code.
+
+git settings apply @ 3 levels
+ 1. System -> Applies to All users
+ 2. Global -> All repo's of the current user.
+ 3. Local -> The current repo.
+
+ git config --global user.name "My UserName"
+ git config --global user.email "gmail@mydomain.my"
+ git config --global core.editor "<your editor> --wait"
+ git config --global -e # will open editor to edit all global settings.
+
+ On windows Line endings are indicated by 2 chars. \r\n
+ \r -> Carriage Return
+ \n -> Line Feed
+
+ On macOS/Linux line ending is \n.
+
+ git config --global core.autocrlf true  # If on win.
+ git config --global core.autocrlf input # mac / Linux
+
+ git config --help # to get help regarding config.
