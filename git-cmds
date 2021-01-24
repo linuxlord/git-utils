@@ -25,4 +25,7 @@ Creating a Git Repo
  git reset HEAD <file name> # To unstage file / unstaging changes.
  git checkout -- <filename> # Discard changes in working directory.
 
- 
+ git log # Shows commit history in reverse chronological order.
+ git help log # to get help on command.
+
+ git log --oneline --graph --decorate --color
