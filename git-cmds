@@ -1,0 +1,14 @@
+Git Help Commands
+ git Help
+ git help config
+ git help Commands
+
+Git Configuration Commands
+ git config --global setting value
+
+Configure User and Email
+ git config --global user.name "Your Name"
+ git config --global user.email "youremail@yourdomain.subdomain"
+ git config --global --list
+
+ cat ~/.gitconfig
