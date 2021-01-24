@@ -47,3 +47,33 @@ git settings apply @ 3 levels
   git rm --cached <filename> # Removes file from staging area only. not the local copy.
 
   git status -s # summary of the staging area. // Shows short status
+  git diff --staged # To check changes staged for commit.
+  git diff # shows working dir vs staging area diff.
+
+  git config --global diff.tool <toolname i.e. vscode / atom>
+  git config --global difftool.vscode.cmd "code --wait --diff $LOCAL $REMOTE"
+  git config --global -e # to edit config settings with editor.
+  git difftool # Launch the GUI diff tool.
+  git difftool --staged # To check changes staged for commit.
+
+  git log # shows commit history.
+  git log --oneline
+  git log --oneline --reverse
+
+  git show <commit id> # shows a commit.
+  git show HEAD~1 # to show 2nd last commit.
+  git show HEAD~1:<full path to a file> # shows complete file.
+  git ls-tree HEAD~1 # shows all files in a commit.
+
+  git restore --staged <filename> # To revert changes a file in staging area.
+  git restore --staged . # To revert changes to all files in staging area.
+
+  git clean -fd # Removes local changes i.e. untracked files etc.
+  git status -s
+
+  git rm <filename> # To delete.
+  git commit -m "deleted file"
+  git log --oneline
+  git restore --source=HEAD~1 <Full path to file> # will restore the file.
+
+  
