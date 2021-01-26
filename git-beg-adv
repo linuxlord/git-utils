@@ -193,3 +193,20 @@ git settings apply @ 3 levels
   git stash apply 1
   git stash drop 1
   git stash clear # will clear all the stashes.
+
+  #Merging  fastforward & 3-way merges.
+  A branch is just a pointer to a commit.
+  fastforward merges happen if branches have not diverged.
+  3-way-merges happen if branches have diverged.
+
+  git log --oneline --all --graph
+  git switch -C <new_branch_name> # will create a new branch and switch to it.
+  git merge --no-ff <branch_name>
+
+  git config ff no # Disables fastforward merges in current repo.
+  git config --global ff no # Disables fastforward merges in all repo.
+
+  # viewing merged and un-merged branches
+  git branch --merged # shows all branches merged in master.
+  git branch -d <branch_name> # will delete the branch.
+  git branch --no-merged # Shows branches not merged in master.
