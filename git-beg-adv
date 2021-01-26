@@ -166,3 +166,30 @@ git settings apply @ 3 levels
   git tag -n # shows tag with annotations
   git show v1.1
   git tag -d <tag name> # will delete the tag.
+
+  # Branches in git
+  git branch <branch_name> # will create a branch.
+  git branch # will list branches along with current branch
+  git status # shows branch
+
+  git switch <branch-name> # will switch to branch.
+  git branch -m <old_name> <new_name> # To rename git branch.
+  git switch master
+  got log --oneline
+  git branch -d <branch_name> # To delete A branch.
+
+  git log master..feature1 # diff log of feature1 vs master.
+  git diff master..feature1 # diff of 2 branches
+  git diff feature1 # feature1 vs currently checked out branch differences.
+  git diff --name-only feature1
+  git diff --name-status feature1
+
+  #Stashing
+  It is used to save uncommitted changes in current branch.
+  git stash push -m "saving my uncomm chngs"
+  git stash push -am "your msg/description" # will stash all tracked and non tracked files.
+  git stash list # will show all stashes in branch.
+  git stash show 1
+  git stash apply 1
+  git stash drop 1
+  git stash clear # will clear all the stashes.
