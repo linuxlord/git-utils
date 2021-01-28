@@ -210,3 +210,65 @@ git settings apply @ 3 levels
   git branch --merged # shows all branches merged in master.
   git branch -d <branch_name> # will delete the branch.
   git branch --no-merged # Shows branches not merged in master.
+
+  # Merge Conflicts
+  git swicth -C feture1/newfeature # Create and switch to a new branch.
+  git switch master
+  git merge feature1/newfeature
+
+  # Graphical merge tools for git
+  1. Kdiff
+  2. P4merge
+  3. Winmerge (Windows only)
+
+  git config --global merge.tool p4merge
+  git config --global mergetool.p4merge.path "<path_to_p4merge>"
+  git mergetool # Will invoke the merge tool.
+
+  #Aborting a Merge
+  git merge --abort # Aborts a merge
+
+  #undoing a bad merge
+  git log --oneline --all --graph
+  git reset --hard HEAD~1 # 1 commit before the last commit.
+  git reset --hard <commit id>.
+
+  #Reverting a commit
+  git revert HEAD # will fail as need to specify how to revert
+  git revert -m 1 HEAD
+
+  #Squash Merge
+  git switch master
+  git merge --squash feature1/newfeature # Will do a squash merge.
+  git status -s
+  git commit -m "A meaningful msg"
+
+  git branch --merged # Shows merged branches. but in case of squash merge it wont show branch a smerged.
+  git branch -d <branch_name> # Will delete the branch.
+
+  #Rebasing
+  it changes the base of feature branch to latest commit in master.
+  rebasing re writes history.
+  git switch -C feature1/newfeature # Creates a new branch.
+  git log --oneline --all --graph
+  git switch master # changes to master branch.
+  git switch feature1/newfeature
+  git rebase master
+  git log --oneline --all --graph
+  git switch master
+  git merge feature1/newfeature
+  git rebase --abort
+  git rebase --continue
+  git clean -fd # cleans working dir.
+
+  git config --global mergetool.keepBackup false # disables backup of conflict merges.
+
+  #Cherrypicking
+  git cherry-pick <commitid of other branch> # run from master
+  git status -s
+  git commit
+
+  #Picking A File from other branch.
+  git swicth -C feature/newb
+  git switch master
+  git restore --source=feature/newb -- <filename> # Restore a file from feature branch to master
