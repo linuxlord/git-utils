@@ -272,3 +272,44 @@ git settings apply @ 3 levels
   git swicth -C feature/newb
   git switch master
   git restore --source=feature/newb -- <filename> # Restore a file from feature branch to master
+
+  git clone <repo_url>  <your custom name> # will clone a repo to a folder anme u specify.
+  git log --oneline --all --graph
+  git remote # shows remote repo's
+  git remote -v # verbose details abt remote repo.
+  git fetch # brings commits from origin.
+  git log --oneline --all --graph
+  git branch -vv # shows divergence between local and remote branch.
+  git merge origin/master
+  git pull
+  git reset --hard HEAD~1 # revert the last commit.
+  git pull --rebase # to rebase with pull
+  git push # push the changes to remote repo.
+  git push -f # Not recommended. never use.
+
+  git config --global credential.helper cache # git will store credentials for 15 mins.
+
+  #Sharing Tags
+  By default the push command won't transfer the tags to remote repo.
+  git tag v1.0
+  git log --oneline
+  git push origin v1.0 # push the tag to remote repo.
+  git push origin --delete v1.0 # Will delete tag in remote repo
+  git tag -d v1.0 # delete tag from your local repo.
+
+  #Sharing branches
+  git switch -C feature/newfeature
+  git branch -vv
+  git branch -r # shows remote tracking branches.
+  git push -u origin feature/newfeature
+  git branch -vv
+  git push -d origin feature/newfeature # will delete remote branch.
+  git branch -r
+  git branch
+  git switch master
+  git branch -d feature/newfeature
+
+  git pull
+  git log --oneline --all --graph
+  git remote prune origin # To delete remote branches that no longer exist.
+  
