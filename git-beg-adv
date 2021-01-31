@@ -380,3 +380,63 @@ git settings apply @ 3 levels
   git clean -fd # will remove untracked files from our working dir.
   git add .
   git commit -m "your msg"
+
+  #ammending an earlier commit
+  git log --oneline
+  git show <commit id>
+  Rebasing replays a bunch of commits on top of other commit.
+  git rebase -i <commit id> # this will open editor
+  change pick to edit in front of commits you want to ammend.
+  Rebasing re writes history.
+  git commit --ammend
+  git log --oneline --all --graph
+  git rebase --continue / git rebase --abort
+  git show <commit id>
+  git log --oneline --all --graph
+
+  #dropping commits
+  git log --oneline
+  git show <commit id>
+  To drop a commit restart rebase op from parent of that commit.
+  git rebase -i <commit id>~1  or <commit id>^ # parent commit. of the commit to be dropped.
+  this will open editor , then change the command from pick to drop or just delete the line.
+  git status -s
+  git mergetool
+  git rebase --abort # in case need to abort
+
+  #Rewording commit messages.
+  git log --oneline --all --graph
+  git rebase -i <commit id>^ / <commit id>~1
+  editor will open replace pick command with reword.
+  git log --oneline --all --graph
+
+  #ReOrdering commits.
+  git rebase -i <commit id>
+  editor will open. move the commit id up/down and save and exit.
+  git log --oneline --all --graph
+
+  #Squashing commits combining commits
+  git rebase -i <commit id>^
+  editor will open replace pick with squash for the commits that need to be squashed.
+  git log --oneline --all --graph
+
+  git reflog
+  git reset --hard <commit id> # restore branch to a particualr commit id.
+  git log --oneline --all --graph
+
+  git rebase -i <commit id>
+  editor will open replace pick with fixup and the commit will be combined with its prev.
+  this is fixing the commits.
+
+  #SpliTting commits
+  git log --oneline --all --graph
+  pick the commit id to be split.
+  git rebase -i <commit id>^ / <commit id>~1
+  editor will open. replace pick with edit. save and close.
+  git log --oneline --all --graph
+  git reset --soft HEAD^ # We go 1 step back to current head pointer with changes in our staging area.
+  git reset --mixed HEAD^ # will unstage changes and reset HEAD pointer.
+  git reset HEAD^ # is same as above as mixed is the default option.
+  add and commit ur changes seperately.
+  git rebase --continue
+  git log --oneline --all --graph
