@@ -272,3 +272,171 @@ git settings apply @ 3 levels
   git swicth -C feature/newb
   git switch master
   git restore --source=feature/newb -- <filename> # Restore a file from feature branch to master
+
+  git clone <repo_url>  <your custom name> # will clone a repo to a folder anme u specify.
+  git log --oneline --all --graph
+  git remote # shows remote repo's
+  git remote -v # verbose details abt remote repo.
+  git fetch # brings commits from origin.
+  git log --oneline --all --graph
+  git branch -vv # shows divergence between local and remote branch.
+  git merge origin/master
+  git pull
+  git reset --hard HEAD~1 # revert the last commit.
+  git pull --rebase # to rebase with pull
+  git push # push the changes to remote repo.
+  git push -f # Not recommended. never use.
+
+  git config --global credential.helper cache # git will store credentials for 15 mins.
+
+  #Sharing Tags
+  By default the push command won't transfer the tags to remote repo.
+  git tag v1.0
+  git log --oneline
+  git push origin v1.0 # push the tag to remote repo.
+  git push origin --delete v1.0 # Will delete tag in remote repo
+  git tag -d v1.0 # delete tag from your local repo.
+
+  #Sharing branches
+  git switch -C feature/newfeature
+  git branch -vv
+  git branch -r # shows remote tracking branches.
+  git push -u origin feature/newfeature
+  git branch -vv
+  git push -d origin feature/newfeature # will delete remote branch.
+  git branch -r
+  git branch
+  git switch master
+  git branch -d feature/newfeature
+
+  git pull
+  git log --oneline --all --graph
+  git remote prune origin # To delete remote branches that no longer exist.
+
+  git fetch # to get newly created branch at remote
+  git branch
+  git branch -r # To view remote branches
+  git switch -C feature/new origin/feture/new # will create a new local branch and make it point to the remote branch @ origin.
+
+  git log --oneline --all --graph
+
+  git switch master
+  git merge feature/new
+
+  git push -d origin feature/new # Delete Remote branch
+  git branch -d feature/new # Delete Local branch.
+  git remote prune origin # To remove tracking branches that are not on origin.
+
+  git remote
+  git remote -v # shows info abt remote.
+  git remote add upstream <upstream url>
+  git remote rename upstream base # Renames upstream to base.
+  git remote rm base # Removes the remote.
+
+  #Re writing history.
+  we can drop , modify , combined , split commits.
+
+  git log --oneline --all --graph
+  git revert HEAD
+  git reset --hard HEAD~1 # move head pointer to previous commit.
+
+  git reset --soft => Removes the commit only.
+  git reset --mixed => unstages files.
+  git reset --hard => Discard local changes.
+
+  git show HEAD # shows the contents of last commit.
+  git reset --soft HEAD~1
+  git status -s
+  git reset --mixed HEAD # will unstage the changes as well.
+  git reset --hard HEAD # Will remove all the local changes and leave you with a clean working DIR.
+
+  # revrting commits
+  git revert is used when change have been committed to remote.
+  git revert HEAD~3..HEAD # will bring repo to revrted stae to 3rd prev. commit.
+  git reset --hard HEAD~3 # reset head pointer and clean out revert commits from hist.
+  git log --oneline --all --graph
+
+  git revert --no-commit HEAD~3..HEAD or HEAD~3..
+  git status -s
+  git revert --abort
+  git revert --continue
+
+  #recovering lost commits.
+  let's say some 1 accidentally does something to revert back more than needed.
+  git log --oneline --all --graph
+  git reset --hard HEAD~6 // does this by mistake.
+  git log --oneline --all --graph
+  git reflog # will show deleted history as well
+  git reset hard <commit id from reflog> i.e. HEAD@{1}
+  git log --oneline --all --graph
+  git reflog show <feature/branch name> will show history of that particular pointer.
+
+  #amending the last commit.
+  git commit --ammend <ur msg> # to ammend the last commit.
+  git log --oneline
+  git show HEAD
+  git reset --mixed HEAD~1 # to undo last commit and undo last staged file/changes.
+  git status -s
+  git clean -fd # will remove untracked files from our working dir.
+  git add .
+  git commit -m "your msg"
+
+  #ammending an earlier commit
+  git log --oneline
+  git show <commit id>
+  Rebasing replays a bunch of commits on top of other commit.
+  git rebase -i <commit id> # this will open editor
+  change pick to edit in front of commits you want to ammend.
+  Rebasing re writes history.
+  git commit --ammend
+  git log --oneline --all --graph
+  git rebase --continue / git rebase --abort
+  git show <commit id>
+  git log --oneline --all --graph
+
+  #dropping commits
+  git log --oneline
+  git show <commit id>
+  To drop a commit restart rebase op from parent of that commit.
+  git rebase -i <commit id>~1  or <commit id>^ # parent commit. of the commit to be dropped.
+  this will open editor , then change the command from pick to drop or just delete the line.
+  git status -s
+  git mergetool
+  git rebase --abort # in case need to abort
+
+  #Rewording commit messages.
+  git log --oneline --all --graph
+  git rebase -i <commit id>^ / <commit id>~1
+  editor will open replace pick command with reword.
+  git log --oneline --all --graph
+
+  #ReOrdering commits.
+  git rebase -i <commit id>
+  editor will open. move the commit id up/down and save and exit.
+  git log --oneline --all --graph
+
+  #Squashing commits combining commits
+  git rebase -i <commit id>^
+  editor will open replace pick with squash for the commits that need to be squashed.
+  git log --oneline --all --graph
+
+  git reflog
+  git reset --hard <commit id> # restore branch to a particualr commit id.
+  git log --oneline --all --graph
+
+  git rebase -i <commit id>
+  editor will open replace pick with fixup and the commit will be combined with its prev.
+  this is fixing the commits.
+
+  #SpliTting commits
+  git log --oneline --all --graph
+  pick the commit id to be split.
+  git rebase -i <commit id>^ / <commit id>~1
+  editor will open. replace pick with edit. save and close.
+  git log --oneline --all --graph
+  git reset --soft HEAD^ # We go 1 step back to current head pointer with changes in our staging area.
+  git reset --mixed HEAD^ # will unstage changes and reset HEAD pointer.
+  git reset HEAD^ # is same as above as mixed is the default option.
+  add and commit ur changes seperately.
+  git rebase --continue
+  git log --oneline --all --graph
